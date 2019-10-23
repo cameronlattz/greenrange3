@@ -17,7 +17,7 @@
   "scripts": {
     "start": "node server.js",
     "seed": "node seedDB",
-    "seedPlan" : "node seedMealPlans",
+    "seedPlan": "node seedMealPlans",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
