@@ -1,6 +1,6 @@
 module.exports = {
     User: require("./User"),
-    UserMealPlanHIstory: require("./UserMealPlanHIstory"),
+    UserMealPlanHistory: require("./UserMealPlanHistory"),
     DietOptionTypes: require("./DietOptionTypes"),
     MealPlan: require("./MealPlan"),
     Ingredient: require("./Ingredient"),
