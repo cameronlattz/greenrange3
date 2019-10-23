@@ -1,0 +1,7 @@
+.containner {
+  width: 95%;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  align-content: center;
+  margin: auto;
+}

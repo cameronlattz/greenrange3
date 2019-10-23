@@ -1,0 +1,19 @@
+.container-testimonials {
+  background-image: url(./bulb-closeup-close-up-clove-159250.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 500px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.container-card {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  margin-right: 0;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}

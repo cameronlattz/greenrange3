@@ -1,0 +1,17 @@
+.container-chefs {
+  background-color: beige;
+  width: auto;
+  height: 500px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.container-card {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  margin-right: 0;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}

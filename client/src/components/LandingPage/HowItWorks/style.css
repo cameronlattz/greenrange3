@@ -1,0 +1,18 @@
+.container {
+  background-color: rgb(235, 250, 244);
+  width: auto;
+  height: 500px;
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.container-card {
+  background-color: rgb(235, 250, 244);
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 5px;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
