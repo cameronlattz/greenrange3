@@ -1,9 +1,9 @@
-const mealController = require( "./src/controllers/mealController.js");
-const meals = require("./src/models/seeds/mealSeeds");
+const mealController = require( "./controllers/mealController");
+const meals = require("./models/seeds/mealSeeds");
 const express = require("express");
 
 const mongoose = require("mongoose");
-const routes = require("./src/routes");
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 console.log("test");
