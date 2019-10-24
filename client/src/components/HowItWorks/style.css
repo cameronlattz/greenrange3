@@ -1,5 +1,5 @@
-.container-main {
-  background-image: url(../../img/howitworksbackground.jpeg);
+.containermain {
+  background-image: url(howitworksbackground.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   width: auto;
@@ -8,7 +8,7 @@
   margin-top: 10px;
   margin-left: 5px;
 }
-.container-img {
+.containerimg {
   margin: auto;
   margin-top: 5px;
   margin-left: 5px;
