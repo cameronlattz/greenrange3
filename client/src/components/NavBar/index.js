@@ -57,7 +57,7 @@ export default function NavBar(props) {
         <Toolbar>
           <img src={imageLogo} alt="Logo" style={{ width: 70, height: 70 }} />
           <Typography variant="h6" className={classes.title}>
-            <Link className={classes.title} to="/">
+            <Link className={classes.title} to="/home">
               Green Range
             </Link>
           </Typography>

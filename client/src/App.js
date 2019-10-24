@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import MealOptions from "./components/MealOptions";
 
+import HowItWorks from "./components/HowItWorks";
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -54,6 +55,11 @@ function App() {
         exact
         path="/mealOptions"
         render={() => <MealOptions {...[]} userId={userId} />}
+        />
+        <Route
+        exact
+        path="/howitworks"
+        render={() => <HowItWorks {...[]} userId={userId} />}
       />
       <Footer />
     </Router>
