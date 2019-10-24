@@ -23,7 +23,6 @@ export default function HomePage(props) {
 
 
     function getUserSelection() {
-        console.log(props)
         if (props.userId !== "") {
             console.log("this is the current user", props.userId)
             API.getUserSelection(props.userId).then(
@@ -38,7 +37,6 @@ export default function HomePage(props) {
                     console.log(res.data)
                     API.getMealPlanById(res.data[0].planId).then(
                         function (res) {
-                            console.log(res);
                             const mealPlan = res.data
                             API.getMeals().then(
                                 function (res) {
@@ -66,6 +64,7 @@ export default function HomePage(props) {
                         }
                     )
                 }
+
             );
         }
     }

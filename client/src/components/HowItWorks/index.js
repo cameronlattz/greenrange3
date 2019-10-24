@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import imagehowitworks from "../../img/logo/howitworks.jpg";
+import imagehowitworks from "../../img/howitworks.jpg";
 import "./style.css";
-import { Container, Typography, Card } from "@material-ui/core";
+import { Container, Typography, Card, CardMedia } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,13 +50,14 @@ export default function HowItWorks() {
   return (
     <Container className="container-main">
       <Typography className={classes.title}>How it works</Typography>
-      <Card className="container-img">
-        <img
+      {/* <Card className="container-img">
+        {/* <Image
           src={imagehowitworks}
-          alt="How it works"
+          alt=
           style={{ width: "auto", height: "400px" }}
-        />
-      </Card>
+        /> 
+        <CardMedia image={imagehowitworks} title="How it works" /> */}
+      {/* </Card> */}
       <Container className={classes.description}>
         <Typography className={classes.paragraph}>
           Our mission is to make your dinner time more enjoyable by delivering

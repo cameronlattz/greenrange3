@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage/Form";
-import SignUpPage from "./components/SignUpPage";
-import ChoosePlanPage from "./components/ChoosePlanPage";
-import HomePage from "./components/HomePage";
-import IngredientsPage from "./components/IngredientsListPage";
-import LandingPage from "./components/LandingPage";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import MealOptions from "./components/MealOptions";
-
-import HowItWorks from "./components/HowItWorks";
+import {SignUpPage, ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks} from "./components";
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -51,6 +42,14 @@ function App() {
       />
       <Route
         exact
+        path="/test"
+        render={() => <MealsPage userId={userId} />}
+      />
+      <Route
+        path="/meal"
+        render={() => <MealsPage userId={userId} />}
+        />
+      <Route
         path="/mealOptions"
         render={() => <MealOptions {...[]} userId={userId} />}
       />
