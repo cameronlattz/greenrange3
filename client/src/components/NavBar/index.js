@@ -25,11 +25,14 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none"
   },
   subtitle: {
-    fontSize: "18px",
+    fontSize: "22px",
     padding: "15px",
     fontFamily: "Didact Gothic",
     textDecoration: "none",
-    color: "white"
+    color: "white",
+    "&[disabled]": {
+      color: "lavender"
+    }
   },
   navBar: {
     backgroundColor: "rgb(206,219,48)",
@@ -39,14 +42,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavBar() {
-  // const [landing, setLanding] = useState(false);
-  // const [howItWorks, setHowItWorks] = useState(false);
-  // const [plans, setPlans] = useState(false);
-  // const [aboutUs, setAboutUs] = useState(false);
-  // const [login, setLogin] = useState(false);
+export default function NavBar(props) {
   let location = useLocation();
   const classes = useStyles();
+
+  function getDisabled(pathName) {
+    console.log(location.pathname.substring(1), pathName);
+    return location.pathname.substring(1) === pathName;
+  }
 
   return (
     <div className={classes.root}>
@@ -58,57 +61,22 @@ export default function NavBar() {
               Green Range
             </Link>
           </Typography>
-          {location.pathname !== "/howitworks" && (
-            <Link
-              // onClick={setHowItWorks(true)}
-              className={classes.subtitle}
-              to="/howitworks"
-            >
-              How it works
-            </Link>
-          )}
-          {/* <Typography
-            href="/howitworks"
-            variant="h6"
+          <Link
             className={classes.subtitle}
+            disabled={getDisabled("howitworks")}
+            to="/howitworks"
           >
-            <Link className={classes.subtitle} to="/howitworks">
-              {" "}
-              How it works
-            </Link>
-          </Typography> */}
-          {location.pathname !== "/plans" && (
-            <Link
-              // onClick={setPlans(true)}
-              className={classes.subtitle}
-              to="/plans"
-            >
-              Meal Plans
-            </Link>
-          )}
-          {/* <Typography variant="h6" className={classes.subtitle}>
-            <Link className={classes.subtitle} to="/plans">
-              Meal Plans
-            </Link>
-          </Typography> */}
+            How it works
+          </Link>
 
-          {location.pathname !== "/aboutus" && (
-            <Link
-              // onClick={setAboutUs(true)}
-              className={classes.subtitle}
-              to="/aboutus"
-            >
-              About us
-            </Link>
-          )}
-          {/* <Typography href="/aboutus" variant="h6" className={classes.subtitle}>
-            <Link className={classes.subtitle} to="/aboutus">
-              About us
-            </Link>
-          </Typography> */}
-          {location.pathname !== "/login" && (
-            <ButtonSignUp href="/login"></ButtonSignUp>
-          )}
+          <Link
+            className={classes.subtitle}
+            disabled={getDisabled("plans")}
+            to="/plans"
+          >
+            Meal Plans
+          </Link>
+          <ButtonSignUp userId={props.userId} href="/login"></ButtonSignUp>
         </Toolbar>
       </AppBar>
     </div>

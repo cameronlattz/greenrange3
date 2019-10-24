@@ -1,3 +1,7 @@
 .app-bar {
-    background-color: rgb(206,219,48);
+  background-color: rgb(219, 48, 148);
+}
+
+a:disabled {
+  display: none;
 }
