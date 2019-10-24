@@ -34,7 +34,7 @@ function App() {
       <Route
         exact
         path="/signup"
-        render={() => <SignUpPage {...[]} userId={userId} />}
+        render={() => <SignUpPage  setUserId={setUserId} />}
       />
       <Route
         exact
