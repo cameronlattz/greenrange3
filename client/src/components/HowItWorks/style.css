@@ -1,0 +1,20 @@
+.container-main {
+  background-image: url(../../img/howitworksbackground.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.container-img {
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 5px;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
