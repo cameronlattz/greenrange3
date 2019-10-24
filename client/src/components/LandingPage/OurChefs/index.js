@@ -7,6 +7,7 @@ import chefTwo from "../OurChefs/img/chef2.jpeg";
 import chefThree from "../OurChefs/img/chef3.jpeg";
 import chefFour from "../OurChefs/img/chef4.jpeg";
 import "./style.css";
+import { Card, Container } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,7 +26,6 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     fontSize: "15px",
-
     fontStyle: "normal",
     fontFamily: "Didact Gothic"
   },
@@ -34,6 +34,11 @@ const useStyles = makeStyles(theme => ({
     padding: "10px",
     fontWeight: "bold",
     fontFamily: "Didact Gothic",
+    textAlign: "center",
+    color: "darkorchid"
+  },
+  card: {
+    minWidth: "210px",
     textAlign: "center"
   }
 }));
@@ -41,11 +46,11 @@ const useStyles = makeStyles(theme => ({
 export default function OurChefs() {
   const classes = useStyles();
   return (
-    <div className="container-chefs">
-      <h1 className={classes.title}>Meet our chefs</h1>
-      <div className="container-card">
-        <div className="comment-card">
-          <Paper className={classes.root}>
+    <Container>
+      <Typography className={classes.title}>Meet our chefs</Typography>
+      <Container className="container-card">
+        <Card className={classes.card}>
+          <Paper>
             <img
               src={chefOne}
               alt="Chef"
@@ -58,9 +63,9 @@ export default function OurChefs() {
               Especialized in latin food.
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
-          <Paper className={classes.root}>
+        </Card>
+        <Card className={classes.card}>
+          <Paper>
             <img
               src={chefTwo}
               alt="Chef"
@@ -73,9 +78,9 @@ export default function OurChefs() {
               French food and amazing cakes.
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
-          <Paper className={classes.root}>
+        </Card>
+        <Card className={classes.card}>
+          <Paper>
             <img
               src={chefThree}
               alt="Chef"
@@ -88,9 +93,9 @@ export default function OurChefs() {
               Indian food and spices.
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
-          <Paper className={classes.root}>
+        </Card>
+        <Card className={classes.card}>
+          <Paper>
             <img
               src={chefFour}
               alt="Chef"
@@ -103,8 +108,8 @@ export default function OurChefs() {
               Pasta and american food.
             </Typography>
           </Paper>
-        </div>
-      </div>
-    </div>
+        </Card>
+      </Container>
+    </Container>
   );
 }

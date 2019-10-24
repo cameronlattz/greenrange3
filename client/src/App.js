@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage/Form";
-import {SignUpPage, ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage} from "./components";
+import {SignUpPage, ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks} from "./components";
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -25,7 +25,7 @@ function App() {
       <Route
         exact
         path="/signup"
-        render={() => <SignUpPage {...[]} userId={userId} />}
+        render={() => <SignUpPage  setUserId={setUserId} />}
       />
       <Route
         exact
@@ -50,6 +50,15 @@ function App() {
       <Route
         path="/meal"
         render={() => <MealsPage userId={userId} />}
+        />
+      <Route
+        path="/mealOptions"
+        render={() => <MealOptions {...[]} userId={userId} />}
+        />
+        <Route
+        exact
+        path="/howitworks"
+        render={() => <HowItWorks {...[]} userId={userId} />}
       />
       <Footer />
     </Router>

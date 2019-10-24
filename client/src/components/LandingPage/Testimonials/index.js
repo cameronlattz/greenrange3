@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import imageLogo from "../images/green-range-logo12.8.png";
 import "./style.css";
+import { Card, Container } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,15 +23,18 @@ const useStyles = makeStyles(theme => ({
   },
   p: {
     fontSize: "15px",
-    padding: "10px",
     fontStyle: "italic",
     fontFamily: "Didact Gothic"
   },
   title: {
     fontSize: "30px",
-    padding: "10px",
     fontWeight: "bold",
     fontFamily: "Didact Gothic",
+    textAlign: "center",
+    color: "darkorchid"
+  },
+  card: {
+    minWidth: "210px",
     textAlign: "center"
   }
 }));
@@ -38,10 +42,12 @@ const useStyles = makeStyles(theme => ({
 export default function Testimonials() {
   const classes = useStyles();
   return (
-    <div className="container-testimonials">
-      <h1 className={classes.title}>What our customers are saying about us!</h1>
-      <div className="container-card">
-        <div className="comment-card">
+    <Container>
+      <Typography className={classes.title}>
+        What our customers are saying about us!
+      </Typography>
+      <Container className="container-card">
+        <Card className="comment-card">
           <Paper className={classes.root}>
             <img src={imageLogo} alt="Logo" style={{ width: 30, height: 30 }} />
             <Typography variant="h6" className={classes.subtitle}>
@@ -53,8 +59,8 @@ export default function Testimonials() {
               Emmanuelle Smith - Minneapolis
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
+        </Card>
+        <Card className="comment-card">
           <Paper className={classes.root}>
             <img src={imageLogo} alt="Logo" style={{ width: 30, height: 30 }} />
             <Typography variant="h6" className={classes.subtitle}>
@@ -65,8 +71,8 @@ export default function Testimonials() {
               Cassia Johnson - Duluth
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
+        </Card>
+        <Card className="comment-card">
           <Paper className={classes.root}>
             <img src={imageLogo} alt="Logo" style={{ width: 30, height: 30 }} />
             <Typography variant="h6" className={classes.subtitle}>
@@ -78,8 +84,8 @@ export default function Testimonials() {
               Peter Marshals - Fargo
             </Typography>
           </Paper>
-        </div>
-        <div className="comment-card">
+        </Card>
+        <Card className="comment-card">
           <Paper className={classes.root}>
             <img src={imageLogo} alt="Logo" style={{ width: 30, height: 30 }} />
             <Typography variant="h6" className={classes.subtitle}>
@@ -91,8 +97,8 @@ export default function Testimonials() {
               Richard Swanson - Eagan
             </Typography>
           </Paper>
-        </div>
-      </div>
-    </div>
+        </Card>
+      </Container>
+    </Container>
   );
 }

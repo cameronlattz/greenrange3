@@ -24,7 +24,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("controller test");
     db.User
       .create(req.body)
       .then(dbModel => res.json(dbModel))

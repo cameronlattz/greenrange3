@@ -12,10 +12,25 @@ export default {
     saveUser: function (UserData) {
         return axios.post("/api/users", UserData);
     },
-    getRecipes: function(startDate, endDate) {
-        return axios.post("/api/mealPlans/week", {startDate, endDate})
+    getRecipes: function (startDate, endDate) {
+        return axios.post("/api/mealPlans/week", { startDate, endDate })
     },
-    getMeal: function(title) {
-        return axios.get("/api/meals/" + title);
+    getMealPlan: function () {
+        return axios.get("/api/mealPlans")
+    },
+    getMealPlanById: function (id) {
+        return axios.get("/api/mealPlans/" + id)
+    },
+    getMeal: function(id) {
+        return axios.get("/api/meal/" + id);
+    },
+    getMeals: function() {
+        return axios.get("/api/meal/");
+    },
+    postUserSelection: function(mealPlan) {
+        return axios.post("/api/userMealPlanHistory", mealPlan);
+    },
+    getUserSelection: function(userId) {
+        return axios.get("/api/userMealPlanHistory/"+ userId);
     }
 };

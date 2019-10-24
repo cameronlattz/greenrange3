@@ -6,20 +6,26 @@ module.exports = {
     db.UserMealPlanHistory
       .find(req.query)
       .sort({_id:-1})
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {console.log("test all"); res.json(dbModel)})
       .catch(err => res.status(422).json(err));
+  },
+  findByUser: function(req, res) {
+      db.UserMealPlanHistory
+      .find({userId: req.body})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   },
   findById: function(req, res) {
     db.UserMealPlanHistory
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .find({userId: req.params.id})
+      .then(dbModel => {console.log("test id", dbModel); res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.UserMealPlanHistory
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {console.log(err);res.status(422).json(err)});
   },
   update: function(req, res) {
     db.UserMealPlanHistory

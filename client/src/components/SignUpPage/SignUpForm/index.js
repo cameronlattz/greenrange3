@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Redirect } from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,13 +30,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function AddressForm() {
+export default function AddressForm(props) {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState("");
 
   function handleFormSubmit(event) {
     console.log("great");
@@ -49,7 +51,10 @@ export default function AddressForm() {
         email,
         password,
       }).then(function (res) { console.log("test 2", res);
-      return res.status(200) }
+      props.setUserId(res.data._id);
+      setUserId(res.data._id);
+
+     }
       )
       
         .catch(err => console.log(err));
@@ -57,6 +62,10 @@ export default function AddressForm() {
   }
 
   const classes = useStyles();
+
+  if (userId) {
+    return <Redirect to="/home" />;
+  }
   return (
     <Container className={classes.container} >
       <React.Fragment>
@@ -160,7 +169,6 @@ export default function AddressForm() {
             />
           </Grid>
           <Button
-            href="/home"
             type="submit"
             fullWidth
             variant="contained"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -13,38 +13,42 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+
 const useStyles = makeStyles(theme => ({
-  card: {
-    marginTop: 50,
-    width: "18%",
-    minWidth: "18%",
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%" // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: "rotate(180deg)"
-  },
-  avatar: {
-    backgroundColor: red[500]
-  }
+    card: {
+        marginTop: 50,
+        width: "18%",
+        minWidth: "18%",
+        height: "400px"
+    },
+    media: {
+        height: 0,
+        paddingTop: "56.25%" // 16:9
+    },
+    expand: {
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+            duration: theme.transitions.duration.shortest
+        })
+    },
+    expandOpen: {
+        transform: "rotate(180deg)"
+    },
+    avatar: {
+        backgroundColor: red[500]
+    }
 }));
 
-export default function RecipeCard(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+export default function MealCard(props) {
+    const classes = useStyles();
+    const [expanded, setExpanded] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
 
     return (
         <Card className={classes.card}>
@@ -54,25 +58,19 @@ export default function RecipeCard(props) {
                         R
                         </Avatar>
                 }
-                title={props.recipe.title}
+                title={props.meal.title}
             />
             <CardMedia
                 className={classes.media}
-                image={props.recipe.imgUrl}
-                title={props.recipe.imgAlt}
+                image={props.meal.imgUrl}
+                title={props.meal.imgAlt}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {props.recipe.description}
+                    {props.meal.description}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                {/* <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton> */}
                 <IconButton
                     className={clsx(classes.expand, {
                         [classes.expandOpen]: expanded,
@@ -87,16 +85,14 @@ export default function RecipeCard(props) {
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>Ingredients:</Typography>
-                    <Typography paragraph>
-                        <ol>
-                            {props.recipe.ingredients.map(ingredient => {
-                                return <li>{ingredient}</li>
-                            })}
-                        </ol>
-                    </Typography>
+                    {/* <ol>
+                        {props.meal.ingredients.map((ingredient, index) => {
+                            return <li key = {index}>{ingredient}</li>
+                        })}
+                    </ol> */}
                     <Typography paragraph>Method:</Typography>
                     <Typography paragraph>
-                        {props.recipe.method}
+                        {props.meal.method}
                     </Typography>
                 </CardContent>
             </Collapse>

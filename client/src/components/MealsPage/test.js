@@ -6,7 +6,6 @@ export default function MealsPage() {
     let location = useLocation();
     const [meal, setMeal] = useState({ingredients:[]});
     function getMeal() {
-        const id = location.pathname.substring(location.pathname.lastIndexOf("/")+1);
         API.getMealPlans().then((meal) => {
             setMeal(meal.data);
         });

@@ -5,6 +5,7 @@ const mealController = require("../../controllers/mealController");
 router.route("/")
   .get(mealController.findAll)
   .post(mealController.create);
+  
 // Matches with "/api/meal/:id"
 router
   .route("/:id")
