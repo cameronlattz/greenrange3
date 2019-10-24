@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage/Form";
-import SignUpPage from "./components/SignUpPage";
-import ChoosePlanPage from "./components/ChoosePlanPage";
-import HomePage from "./components/HomePage";
-import IngredientsPage from "./components/IngredientsListPage";
-import LandingPage from "./components/LandingPage";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import {SignUpPage, ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage} from "./components";
+
 function App() {
   const [userId, setUserId] = useState("");
   const updateUserId = function(userId) {
@@ -20,7 +15,7 @@ function App() {
       <Route
         exact
         path="/login"
-        render={() => <LoginPage {...[]} updateUserId={updateUserId} />}
+        render={() => <LoginPage updateUserId={updateUserId} />}
       />
       <Route
         exact
@@ -35,7 +30,7 @@ function App() {
       <Route
         exact
         path="/home"
-        render={() => <HomePage {...[]} userId={userId} />}
+        render={() => <HomePage userId={userId} />}
       />
       <Route
         exact
@@ -46,6 +41,15 @@ function App() {
         exact
         path="/ingredients"
         render={() => <IngredientsPage {...[]} userId={userId} />}
+      />
+      <Route
+        exact
+        path="/test"
+        render={() => <MealsPage userId={userId} />}
+      />
+      <Route
+        path="/meal"
+        render={() => <MealsPage userId={userId} />}
       />
       <Footer />
     </Router>

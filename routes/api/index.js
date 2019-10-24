@@ -11,5 +11,5 @@ router.use("/dietOptionTypes", dietOptionTypesRoutes);
 router.use("/ingredient", ingredientRoutes);
 router.use("/mealPlans", mealPlanRoutes);
 router.use("/userMealPlanHistory", userMealPlanHistoryRoutes);
-router.use("/meal", mealRoutes);
+router.use("/meals", mealRoutes);
 module.exports = router;

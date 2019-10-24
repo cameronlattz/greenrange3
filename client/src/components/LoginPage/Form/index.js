@@ -54,7 +54,6 @@ export default function SignInForm(props) {
         const password = event.target.password.value;
         API.signIn({ email, password })
             .then(function (res) {
-                console.log(res.data);
                 setUserId(res.data);
                 props.updateUserId(res.data);
             }).catch(err => console.log(err));

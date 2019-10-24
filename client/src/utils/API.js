@@ -10,10 +10,12 @@ export default {
     },
     // Saves a User to the database
     saveUser: function (UserData) {
-        console.log("hi test", UserData);
         return axios.post("/api/users", UserData);
     },
     getRecipes: function(startDate, endDate) {
         return axios.post("/api/mealPlans/week", {startDate, endDate})
+    },
+    getMeal: function(title) {
+        return axios.get("/api/meals/" + title);
     }
 };

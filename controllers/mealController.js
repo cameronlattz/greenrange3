@@ -16,10 +16,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("Here is the meal: ", req);
     db.Meal
       .create(req)
-      .then(dbModel => {console.log("Here's the response", res); res.json(dbModel)})
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
