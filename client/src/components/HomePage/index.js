@@ -23,20 +23,13 @@ export default function HomePage(props) {
 
 
     function getUserSelection() {
-        console.log(props)
         if (props.userId !== "") {
             API.getUserSelection(props.userId).then(
                 function (res) {
-                    console.log("WTF");
-                    console.log("This is the user's selection:", res);
-
-                    if(!res.data){
-                        return console.log("oops")
-                    }
-                    console.log(res.data[0].planId)
+                    console.log(res);
+                    if (res.data.length > 0) {
                     API.getMealPlanById(res.data[0].planId).then(
                         function (res) {
-                            console.log(res);
                             const mealPlan = res.data
                             API.getMeals().then(
                                 function (res) {
@@ -63,6 +56,7 @@ export default function HomePage(props) {
                             // }
                         }
                     )
+                    }
                 }
             );
         }

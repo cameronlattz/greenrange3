@@ -6,5 +6,7 @@ import LandingPage from "./LandingPage";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import MealsPage from "./MealsPage";
+import MealOptions from "./MealOptions";
+import HowItWorks from "./HowItWorks";
 
-export {HomePage, ChoosePlanPage, SignUpPage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage};
+export {HomePage, ChoosePlanPage, SignUpPage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks};
