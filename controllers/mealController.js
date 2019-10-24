@@ -19,8 +19,8 @@ module.exports = {
     console.log("Here is the meal: ", req);
     db.Meal
       .create(req)
-      .then(dbModel => {console.log("Here's the response", res); res.json(dbModel)})
-      .catch(err => res.status(422).json(err));
+      .then(entry => {console.log("Here's the response", entry); res.send(entry)})
+      .catch(err => console.log("Stop breaking my crap John", err));
   },
   update: function(req, res) {
     db.Meal

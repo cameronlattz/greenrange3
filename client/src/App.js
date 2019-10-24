@@ -8,6 +8,9 @@ import IngredientsPage from "./components/IngredientsListPage";
 import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import MealOptions from "./components/MealOptions";
+
+
 function App() {
   const [userId, setUserId] = useState("");
   const updateUserId = function(userId) {
@@ -46,6 +49,11 @@ function App() {
         exact
         path="/ingredients"
         render={() => <IngredientsPage {...[]} userId={userId} />}
+      />
+      <Route
+        exact
+        path="/mealOptions"
+        render={() => <MealOptions {...[]} userId={userId} />}
       />
       <Footer />
     </Router>

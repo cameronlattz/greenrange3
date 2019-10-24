@@ -19,7 +19,7 @@ module.exports = {
     req.body.date = new Date(req.body.date);
     db.MealPlan
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   seed: function(req, res) {

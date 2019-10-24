@@ -71,8 +71,8 @@ export default function NavBar(props) {
 
           <Link
             className={classes.subtitle}
-            disabled={getDisabled("plans")}
-            to="/plans"
+            disabled={getDisabled("mealOptions")}
+            to="/mealOptions"
           >
             Meal Plans
           </Link>

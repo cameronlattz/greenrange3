@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const mealPlanController = require("../../controllers/mealPlanController");
 
-
 // Matches with "/api/mealPlans/week"
 router
   .route("/week")

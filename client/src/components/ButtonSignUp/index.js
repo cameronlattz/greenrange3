@@ -16,23 +16,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonSingUp() {
+export default function ButtonSignUp(props) {
   const classes = useStyles();
 
   return (
-    <div>
-      <div>
-        <Button
-          variant="contained"
-          size="medium"
-          color="secondary"
-          className={classes.margin}
-        >
-          <Link className={classes.link} to="/login">
-            Sign In
-          </Link>
-        </Button>
-      </div>
-    </div>
+    <Button
+      variant="contained"
+      size="medium"
+      color="secondary"
+      className={classes.margin}
+    >
+      <Link className={classes.link} to="/login">
+        Sign {props.userId && "Out"}
+        {!props.userId && "In"}
+      </Link>
+    </Button>
   );
 }
