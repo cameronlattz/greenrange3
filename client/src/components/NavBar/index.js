@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -47,7 +47,6 @@ export default function NavBar(props) {
   const classes = useStyles();
 
   function getDisabled(pathName) {
-    console.log(location.pathname.substring(1), pathName);
     return location.pathname.substring(1) === pathName;
   }
 

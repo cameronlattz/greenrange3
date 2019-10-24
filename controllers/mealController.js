@@ -16,11 +16,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("Here is the meal: ", req);
     db.Meal
       .create(req)
-      .then(entry => {console.log("Here's the response", entry); res.send(entry)})
-      .catch(err => console.log("Stop breaking my crap John", err));
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
     db.Meal
