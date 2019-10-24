@@ -57,7 +57,7 @@ export default function NavBar(props) {
         <Toolbar>
           <img src={imageLogo} alt="Logo" style={{ width: 70, height: 70 }} />
           <Typography variant="h6" className={classes.title}>
-            <Link className={classes.title} to="/">
+            <Link className={classes.title} to="/home">
               Green Range
             </Link>
           </Typography>
@@ -71,8 +71,8 @@ export default function NavBar(props) {
 
           <Link
             className={classes.subtitle}
-            disabled={getDisabled("plans")}
-            to="/plans"
+            disabled={getDisabled("mealOptions")}
+            to="/mealOptions"
           >
             Meal Plans
           </Link>

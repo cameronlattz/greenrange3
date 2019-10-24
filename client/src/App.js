@@ -8,6 +8,8 @@ import IngredientsPage from "./components/IngredientsListPage";
 import LandingPage from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import MealOptions from "./components/MealOptions";
+
 import HowItWorks from "./components/HowItWorks";
 
 function App() {
@@ -32,7 +34,7 @@ function App() {
       <Route
         exact
         path="/signup"
-        render={() => <SignUpPage {...[]} userId={userId} />}
+        render={() => <SignUpPage  setUserId={setUserId} />}
       />
       <Route
         exact
@@ -50,6 +52,11 @@ function App() {
         render={() => <IngredientsPage {...[]} userId={userId} />}
       />
       <Route
+        exact
+        path="/mealOptions"
+        render={() => <MealOptions {...[]} userId={userId} />}
+        />
+        <Route
         exact
         path="/howitworks"
         render={() => <HowItWorks {...[]} userId={userId} />}
