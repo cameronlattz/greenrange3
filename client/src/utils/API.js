@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     signIn: function (userData) {
+        console.log(userData)
         return axios.post("api/users/signin", userData)
     },
     // Deletes the User with the given id

@@ -4,10 +4,10 @@ const db = require("../models");
 module.exports = {
   
   findUserId: function(req, res) {
-    // console.log("redsjad", req.query)
+    console.log("redsjad", req.body)
     db.User
-    .findOne(req.query)
-    .then(dbModel => res.json(dbModel._id))
+    .findOne({email : req.body.email, password : req.body.password})
+    .then(dbModel => {console.log(dbModel); res.json(dbModel._id)})
     .catch(err => res.status(422).json(err));
   },
   findAll: function(req, res) {

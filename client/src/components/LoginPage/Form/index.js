@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -57,8 +57,9 @@ export default function SignInForm(props) {
     if (email !== "" && password !== "") {
       API.signIn({ email, password })
         .then(function(res) {
+          console.log("This user is signed in:", res.data);
           setUserId(res.data);
-          props.updateUserId(res.data);
+          props.setUserId(res.data);
         })
         .catch(err => console.log(err));
     } else {
@@ -66,9 +67,10 @@ export default function SignInForm(props) {
     }
   }
 
-  if (userId) {
-    return <Redirect to="/home" />;
-  }
+if (userId !== "") {
+  return <Redirect to="/home" />
+}
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />

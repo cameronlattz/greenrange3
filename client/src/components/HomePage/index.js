@@ -24,10 +24,17 @@ export default function HomePage(props) {
 
     function getUserSelection() {
         if (props.userId !== "") {
+            console.log("this is the current user", props.userId)
             API.getUserSelection(props.userId).then(
                 function (res) {
-                    console.log(res);
-                    if (res.data.length > 0) {
+                    console.log("This is the user's selection:", res);
+
+                    if (!res.data) {
+                        return console.log("oops")
+                    } else if (res.data.length === 0) {
+                        return alert("you must be new")
+                    }
+                    console.log(res.data)
                     API.getMealPlanById(res.data[0].planId).then(
                         function (res) {
                             const mealPlan = res.data
@@ -56,8 +63,8 @@ export default function HomePage(props) {
                             // }
                         }
                     )
-                    }
                 }
+
             );
         }
     }
