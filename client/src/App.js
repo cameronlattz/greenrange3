@@ -14,9 +14,7 @@ import HowItWorks from "./components/HowItWorks";
 
 function App() {
   const [userId, setUserId] = useState("");
-  const updateUserId = function(userId) {
-    setUserId(userId);
-  };
+
 
   return (
     <Router>
@@ -24,7 +22,7 @@ function App() {
       <Route
         exact
         path="/login"
-        render={() => <LoginPage {...[]} updateUserId={updateUserId} />}
+        render={() => <LoginPage {...[]} setUserId={setUserId} />}
       />
       <Route
         exact
@@ -34,12 +32,12 @@ function App() {
       <Route
         exact
         path="/signup"
-        render={() => <SignUpPage  setUserId={setUserId} />}
+        render={() => <SignUpPage setUserId={setUserId} />}
       />
       <Route
         exact
         path="/home"
-        render={() => <HomePage {...[]} userId={userId} />}
+        render={() => <HomePage userId={userId} />}
       />
       <Route
         exact
@@ -55,8 +53,8 @@ function App() {
         exact
         path="/mealOptions"
         render={() => <MealOptions {...[]} userId={userId} />}
-        />
-        <Route
+      />
+      <Route
         exact
         path="/howitworks"
         render={() => <HowItWorks {...[]} userId={userId} />}

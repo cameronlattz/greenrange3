@@ -47,7 +47,6 @@ export default function NavBar(props) {
   const classes = useStyles();
 
   function getDisabled(pathName) {
-    console.log(location.pathname.substring(1), pathName);
     return location.pathname.substring(1) === pathName;
   }
 

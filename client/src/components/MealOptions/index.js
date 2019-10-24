@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function HomePage(props) {
     const [mealPlans, setMealPlans] = useState([]);
-    const [userSelection, setUserSelection] = useState({});
+    const [userSelection, setUserSelection] = useState();
 
     function postUserSelection(mealPlan) {
         console.log("here are the props", props);
@@ -55,9 +55,15 @@ export default function HomePage(props) {
     }
 
     function getUserHistory() {
+        console.log("The user Id: ", props.userId)
         API.getUserSelection(props.userId).then(function (res) {
-            setUserSelection(res.data);
-            console.log(res.data)
+            if (res.data.length === 0) {
+                console.log("Boo!!!! Cameron", userSelection)
+                return
+            } else {
+                console.log("a different message for Cameron")
+                setUserSelection(res.data);
+            }
         })
     }
 
@@ -94,10 +100,9 @@ export default function HomePage(props) {
 
     return (
         <>
-             
             <Typography className={classes.header}>{!userSelection ?
-            
-        text:pickedText} </Typography>
+
+                text : pickedText} </Typography>
             {!userSelection && mealPlans.map((mealPlan, index) => {
                 return (
                     <>
