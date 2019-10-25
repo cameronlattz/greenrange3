@@ -41,6 +41,7 @@ export default function HomePage(props) {
     }
 
     function getUserSelection() {
+        console.log(props.userId);
         if (props.userId !== "") {
             API.getUserSelection(props.userId).then(
                 function (res) {
@@ -60,6 +61,8 @@ export default function HomePage(props) {
                                 setMeals(mealPlan.mealObj);
                             })
                         })
+                    } else {
+                        setMeals([]);
                     }
                 }
 

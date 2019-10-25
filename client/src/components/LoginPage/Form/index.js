@@ -57,7 +57,6 @@ export default function SignInForm(props) {
     if (email !== "" && password !== "") {
       API.signIn({ email, password })
         .then(function(res) {
-          console.log("This user is signed in:", res.data);
           setUserId(res.data);
           props.setUserId(res.data);
         })
