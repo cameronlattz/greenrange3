@@ -1,31 +1,38 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage/Form";
-import {SignUpPage, ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks} from "./components";
+import SignUpPage from "./components/SignUpPage/SignUpForm";
+import {makeStyles} from "@material-ui/core";
+import {ChoosePlanPage, HomePage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks} from "./components";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    minHeight: "66vh"
+  }
+}));
 
 function App() {
   const [userId, setUserId] = useState("");
-  const updateUserId = function(userId) {
-    setUserId(userId);
-  };
 
+  const classes = useStyles();
   return (
     <Router>
-      <NavBar />
+      <NavBar userId={userId} />
+      <div className={classes.root}>
       <Route
         exact
         path="/login"
-        render={() => <LoginPage updateUserId={updateUserId} />}
+        render={() => <LoginPage setUserId={setUserId} />}
       />
       <Route
         exact
         path="/plans"
-        render={() => <ChoosePlanPage {...[]} userId={userId} />}
+        render={() => <ChoosePlanPage userId={userId} />}
       />
       <Route
         exact
         path="/signup"
-        render={() => <SignUpPage  setUserId={setUserId} />}
+        render={() => <SignUpPage setUserId={setUserId} />}
       />
       <Route
         exact
@@ -35,17 +42,12 @@ function App() {
       <Route
         exact
         path="/"
-        render={() => <LandingPage {...[]} userId={userId} />}
+        render={() => <LandingPage userId={userId} />}
       />
       <Route
         exact
         path="/ingredients"
-        render={() => <IngredientsPage {...[]} userId={userId} />}
-      />
-      <Route
-        exact
-        path="/test"
-        render={() => <MealsPage userId={userId} />}
+        render={() => <IngredientsPage userId={userId} />}
       />
       <Route
         path="/meal"
@@ -53,13 +55,14 @@ function App() {
         />
       <Route
         path="/mealOptions"
-        render={() => <MealOptions {...[]} userId={userId} />}
+        render={() => <MealOptions userId={userId} />}
         />
         <Route
         exact
         path="/howitworks"
-        render={() => <HowItWorks {...[]} userId={userId} />}
+        render={() => <HowItWorks userId={userId} />}
       />
+      </div>
       <Footer />
     </Router>
   );

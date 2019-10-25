@@ -2,9 +2,7 @@ const db = require("../models");
 
 // Defining methods for the booksController
 module.exports = {
-  
   findUserId: function(req, res) {
-    // console.log("redsjad", req.query)
     db.User
     .findOne(req.query)
     .then(dbModel => res.json(dbModel._id))

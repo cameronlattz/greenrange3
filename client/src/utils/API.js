@@ -30,6 +30,9 @@ export default {
     postUserSelection: function(mealPlan) {
         return axios.post("/api/userMealPlanHistory", mealPlan);
     },
+    upsertUserMealPlanHistory: function(mealPlan) {
+        return axios.post("/api/userMealPlanHistory/" + mealPlan.userId, mealPlan);
+    },
     getUserSelection: function(userId) {
         return axios.get("/api/userMealPlanHistory/"+ userId);
     }

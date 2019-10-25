@@ -58,11 +58,8 @@ export default function SignInForm(props) {
       API.signIn({ email, password })
         .then(function(res) {
           setUserId(res.data);
-          props.updateUserId(res.data);
+          props.setUserId(res.data);
         })
-        .catch(err => console.log(err));
-    } else {
-      return alert("You need to sign in");
     }
   }
 

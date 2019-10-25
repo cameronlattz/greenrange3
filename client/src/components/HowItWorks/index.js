@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import imagehowitworks from "../../img/howitworks.jpg";
 import "./style.css";
-import { Container, Typography, Card, CardMedia } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {

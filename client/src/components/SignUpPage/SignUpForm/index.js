@@ -42,10 +42,8 @@ export default function AddressForm(props) {
   const [userId, setUserId] = useState("");
 
   function handleFormSubmit(event) {
-    console.log("great");
     event.preventDefault();
     setFormSubmitted(true);
-    console.log(firstName, lastName);
     if (
       firstName !== "" &&
       lastName !== "" &&
@@ -65,12 +63,9 @@ export default function AddressForm(props) {
         password
       })
         .then(function(res) {
-          console.log("test 2", res);
           props.setUserId(res.data._id);
           setUserId(res.data._id);
         })
-
-        .catch(err => console.log(err));
     }
   }
 
@@ -81,6 +76,7 @@ export default function AddressForm(props) {
   }
   return (
     <Container className={classes.container}>
+      <div>keys:{props.test}</div>
       <React.Fragment>
         <Typography className={classes.title} variant="h6" gutterBottom>
           Shipping address
@@ -97,7 +93,7 @@ export default function AddressForm(props) {
               autoComplete="fname"
               value={firstName}
               error={firstName === "" && formSubmitted}
-              helperText={firstName === "" ? "First name is required" : " "}
+              helperText={firstName === "" && formSubmitted ? "First name is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -111,7 +107,7 @@ export default function AddressForm(props) {
               autoComplete="lname"
               value={lastName}
               error={lastName === "" && formSubmitted}
-              helperText={lastName === "" ? "Last name is required" : " "}
+              helperText={lastName === "" && formSubmitted ? "Last name is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -125,7 +121,7 @@ export default function AddressForm(props) {
               autoComplete="email"
               value={email}
               error={email === "" && formSubmitted}
-              helperText={email === "" ? "Email is required" : " "}
+              helperText={email === "" && formSubmitted ? "Email is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -153,7 +149,7 @@ export default function AddressForm(props) {
               autoComplete="billing address-line1"
               value={address}
               error={address === "" && formSubmitted}
-              helperText={address === "" ? "Address is required" : " "}
+              helperText={address === "" && formSubmitted ? "Address is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -167,7 +163,7 @@ export default function AddressForm(props) {
               autoComplete="billing address-level2"
               value={city}
               error={city === "" && formSubmitted}
-              helperText={city === "" ? "City is required" : " "}
+              helperText={city === "" && formSubmitted ? "City is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -181,7 +177,7 @@ export default function AddressForm(props) {
               autoComplete="state"
               value={state}
               error={state === "" && formSubmitted}
-              helperText={state === "" ? "State is required" : " "}
+              helperText={state === "" && formSubmitted ? "State is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -195,7 +191,7 @@ export default function AddressForm(props) {
               autoComplete="billing postal-code"
               value={zip}
               error={zip === "" && formSubmitted}
-              helperText={zip === "" ? "Zip is required" : " "}
+              helperText={zip === "" && formSubmitted ? "Zip is required" : " "}
             />
           </Grid>
           <Grid item xs={12} sm={6}>

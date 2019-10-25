@@ -16,10 +16,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
     card: {
-        marginTop: 50,
         width: "18%",
         minWidth: "18%",
-        height: "400px"
+        marginLeft: 5,
+        marginRight: 5
     },
     media: {
         height: 0,
@@ -44,11 +44,9 @@ export default function MealCard(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
 
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
 
     return (
         <Card className={classes.card}>
