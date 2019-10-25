@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import imagehowitworks from "./howitworks.jpg";
 import "./style.css";
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography, Card } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,43 +42,36 @@ const useStyles = makeStyles(theme => ({
     marginTop: "20px",
     marginBottom: "20px",
     alignContent: "center"
+  },
+  containermain: {
+    width: "auto",
+    height: "100%",
+    margin: "auto",
+    marginTop: "10px",
+    display: "flex"
+  },
+  containerimg: {
+    margin: "auto",
+    marginTop: "5px",
+    alignContent: "center",
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap"
   }
 }));
 
 export default function HowItWorks() {
   const classes = useStyles();
   return (
-    <Container className="container-main">
+    <Container className="containermain">
       <Typography className={classes.title}>How it works</Typography>
-      {/* <Card className="container-img">
-        {/* <Image
+      <Card className="containerimg">
+        <img
           src={imagehowitworks}
-          alt=
+          alt="howitworks"
           style={{ width: "auto", height: "400px" }}
-        /> 
-        <CardMedia image={imagehowitworks} title="How it works" /> */}
-      {/* </Card> */}
-      <Container className={classes.description}>
-        <Typography className={classes.paragraph}>
-          Our mission is to make your dinner time more enjoyable by delivering
-          everything you need to cook chef inspired meals right to your front
-          door, without the waste and for less money.
-        </Typography>
-        <Typography className={classes.paragraph}>
-          If you like to cook but don't have time to shop for groceries, and you
-          care about how much waste is sitting in a landfill, Green Range is
-          here to help.
-        </Typography>
-        <Typography className={classes.paragraph}>
-          After signing up you'll have access to our weekly meal plans, with
-          recipes designed by world renowned chefs. Every ingredient needed to
-          make these meals will be delivered to your front door from the grocery
-          store of your choosing.
-        </Typography>
-        <Typography className={classes.paragraph}>
-          Each week there are new exciting recipes to choose from. Enjoy it!
-        </Typography>
-      </Container>
+        />
+      </Card>
     </Container>
   );
 }
