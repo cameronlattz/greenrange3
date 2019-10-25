@@ -17,7 +17,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "rgb(206,219,48)",
     alignContent: "center",
     display: "flex",
-    width: "100%"
+    width: "100%",
+    position: "relative",
+    bottom: 0
   },
   card: {
     flex: 1,

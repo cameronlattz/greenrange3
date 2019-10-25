@@ -4,17 +4,9 @@
   background-size: cover;
   width: auto;
   height: 100%;
-  margin: auto;
-  margin-top: 10px;
-  margin-left: 5px;
+  padding: 5px 50px;
+  margin-bottom: -20px;
 }
-.containerimg {
-  margin: auto;
-  margin-top: 5px;
-  margin-left: 5px;
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
+.container-img {
+  text-align: center;
 }

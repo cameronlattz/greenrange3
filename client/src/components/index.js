@@ -8,5 +8,7 @@ import Footer from "./Footer";
 import MealsPage from "./MealsPage";
 import MealOptions from "./MealOptions";
 import HowItWorks from "./HowItWorks";
+import PageNotFound from "./PageNotFound";
 
-export {HomePage, ChoosePlanPage, SignUpPage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, HowItWorks};
+export {HomePage, ChoosePlanPage, SignUpPage, IngredientsPage, LandingPage, NavBar, Footer, MealsPage, MealOptions, 
+    HowItWorks, PageNotFound};
