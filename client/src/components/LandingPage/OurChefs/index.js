@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
 export default function OurChefs() {
   const classes = useStyles();
   return (
-    <Container>
+    <>
       <Typography className={classes.title}>Meet our chefs</Typography>
       <Container className="container-card">
         <Card className={classes.card}>
@@ -110,6 +110,6 @@ export default function OurChefs() {
           </Paper>
         </Card>
       </Container>
-    </Container>
+    </>
   );
 }

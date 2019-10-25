@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -57,13 +57,9 @@ export default function SignInForm(props) {
     if (email !== "" && password !== "") {
       API.signIn({ email, password })
         .then(function(res) {
-          console.log("This user is signed in:", res.data);
           setUserId(res.data);
           props.setUserId(res.data);
         })
-        .catch(err => console.log(err));
-    } else {
-      return alert("You need to sign in");
     }
   }
 

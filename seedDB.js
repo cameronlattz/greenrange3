@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-console.log("test");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,6 +28,5 @@ app.listen(PORT, function() {
 });
 
 meals.forEach(meal => {
-    //console.log(meal)
     mealController.create(meal);
 });

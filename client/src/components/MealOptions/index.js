@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MealCard from "./Card";
-import { Container, makeStyles } from "@material-ui/core";
+import { Button, Container, makeStyles } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import API from "../../utils/API";
-import Link from "react-router-dom/Link"
+import { Redirect } from "react-router-dom";
 import "./style.css";
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         direction: "row",
         justifyContent: "spaceBetween",
-        alignItems: "center"
+        alignItems: "baseline"
     },
     linkContainer: {
         justifyContent: "center"
@@ -19,52 +19,29 @@ const useStyles = makeStyles(theme => ({
     header: {
         fontSize: 40,
         color: "rgb(159,65,152)",
-        textAlign: "center",
-        marginTop: "100px",
-        marginBottom: "120px"
+        textAlign: "center"
     },
     linkButton: {
         background: "rgb(159,65,152)",
-        color: "white",
-        height: "40px",
         minWidth: "400px",
         textAlign: "center",
-        textDecoration: "none",
+        marginTop: "10px",
         borderRadius: "10px",
-        marginTop: "80px",
-        marginBottom: "120px",
         fontSize: "30px",
-        padding: "10px",
-        boxShadow: "1px 2px 2px 1px #ccc"
+        padding: "10px"
     }
 }));
 
 export default function HomePage(props) {
     const [mealPlans, setMealPlans] = useState([]);
-    const [userSelection, setUserSelection] = useState();
+    const [userMealPlanHistory, setUserMealPlanHistory] = useState(null);
 
     function postUserSelection(mealPlan) {
-        console.log("here are the props", props);
         const userSelection = { userId: props.userId, planId: mealPlan._id, date: mealPlan.date }
-        API.postUserSelection(userSelection)
+        API.upsertUserMealPlanHistory(userSelection)
             .then(function (res) {
-                res.sendStatus(200);
-            }).catch(function (err) {
-                console.log(err);
-            })
-    }
-
-    function getUserHistory() {
-        console.log("The user Id: ", props.userId)
-        API.getUserSelection(props.userId).then(function (res) {
-            if (res.data.length === 0) {
-                console.log("Boo!!!! Cameron", userSelection)
-                return
-            } else {
-                console.log("a different message for Cameron")
-                setUserSelection(res.data);
-            }
-        })
+                setUserMealPlanHistory(res.data);
+            });
     }
 
     function getMealPlan() {
@@ -91,21 +68,25 @@ export default function HomePage(props) {
         );
     }
 
-    useEffect(() => { getMealPlan(); getUserHistory() },
-        []);
+    useEffect(() => getMealPlan(), []);
 
     const classes = useStyles();
-    const text = "Time to choose your meals for next week";
-    const pickedText = "You have to wait until next week";
-
+    if (userMealPlanHistory) {
+        return <Redirect to="/home" />
+    }
     return (
         <>
-            <Typography className={classes.header}>{!userSelection ?
-
-                text : pickedText} </Typography>
-            {!userSelection && mealPlans.map((mealPlan, index) => {
+            <Typography className={classes.header}>
+                Choose your meals for next week
+            </Typography>
+            {mealPlans.length === 0 && 
+                <Typography className={classes.header}>
+                    Loading...
+                </Typography>
+            }
+            {mealPlans.map((mealPlan, index) => {
                 return (
-                    <>
+                    <div key={index}>
                         <Container className={classes.container}>
 
                             <div className={classes.container} key={mealPlan._id}>
@@ -115,13 +96,12 @@ export default function HomePage(props) {
                             </div>
                         </Container>
                         <Container className={classes.linkContainer}>
-                            <Link className={classes.linkButton}
+                            <Button className={classes.linkButton}
                                 onClick={() => postUserSelection(mealPlan)}
-                                to="/home"
-                            >Meal Plan # {index + 1}
-                            </Link>
+                            >Meal Plan #{index + 1}
+                            </Button>
                         </Container>
-                    </>
+                    </div>
                 )
             }
             )}

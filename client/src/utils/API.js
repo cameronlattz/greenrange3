@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
     signIn: function (userData) {
-        console.log(userData)
         return axios.post("api/users/signin", userData)
     },
     // Deletes the User with the given id
@@ -30,6 +29,9 @@ export default {
     },
     postUserSelection: function(mealPlan) {
         return axios.post("/api/userMealPlanHistory", mealPlan);
+    },
+    upsertUserMealPlanHistory: function(mealPlan) {
+        return axios.post("/api/userMealPlanHistory/" + mealPlan.userId, mealPlan);
     },
     getUserSelection: function(userId) {
         return axios.get("/api/userMealPlanHistory/"+ userId);

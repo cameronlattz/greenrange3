@@ -10,7 +10,7 @@ router.route("/")
 router
   .route("/:id")
   .get(userMealPlanHistoryController.findById)
-  .put(userMealPlanHistoryController.update)
+  .post(userMealPlanHistoryController.upsertByUserId)
   .delete(userMealPlanHistoryController.remove);
 
 

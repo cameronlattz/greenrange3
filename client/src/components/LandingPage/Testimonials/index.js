@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 export default function Testimonials() {
   const classes = useStyles();
   return (
-    <Container>
+    <>
       <Typography className={classes.title}>
         What our customers are saying about us!
       </Typography>
@@ -99,6 +99,6 @@ export default function Testimonials() {
           </Paper>
         </Card>
       </Container>
-    </Container>
+    </>
   );
 }
