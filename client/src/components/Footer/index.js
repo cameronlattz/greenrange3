@@ -7,6 +7,9 @@ import { FaInstagram } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 
 const useStyles = makeStyles(theme => ({
+  container: {
+    //position: "relative"
+  },
   footer: {
     flex: 1,
     justifyContent: "center",
@@ -18,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     alignContent: "center",
     display: "flex",
     width: "100%",
-    position: "relative",
     bottom: 0
   },
   card: {
@@ -33,14 +35,16 @@ function Footer() {
   const classes = useStyles();
 
   return (
-    <div className={classes.footer}>
-      <div className={classes.card}>
-        <img src={imageLogo} alt="Logo" style={{ width: 70, height: 70 }} />
-      </div>
-      <div className={classes.card}>
-        <FaEnvelope style={{ width: 40, height: 40 }} />
-        <FaFacebookSquare style={{ width: 40, height: 40 }} />
-        <FaInstagram style={{ width: 40, height: 40 }} />
+    <div className={classes.container}>
+      <div className={classes.footer}>
+        <div className={classes.card}>
+          <img src={imageLogo} alt="Logo" style={{ width: 70, height: 70 }} />
+        </div>
+        <div className={classes.card}>
+          <FaEnvelope style={{ width: 40, height: 40 }} />
+          <FaFacebookSquare style={{ width: 40, height: 40 }} />
+          <FaInstagram style={{ width: 40, height: 40 }} />
+        </div>
       </div>
     </div>
   );

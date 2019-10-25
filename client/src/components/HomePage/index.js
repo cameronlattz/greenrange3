@@ -31,11 +31,13 @@ export default function HomePage(props) {
     const [meals, setMeals] = useState(null);
 
     function addRecipes() {
-        const baseUrl = window.location.protocol + "//" + window.location.host;
-        const recipes = meals.map(meal => baseUrl + "/" + meal._id);
+        //const baseUrl = window.location.protocol + "//" + window.location.host;
+        const baseUrl = "http://cameronlattz.com/greenrange/";
+        const recipes = meals.map(meal => baseUrl + "/" + meal.title.replace(/ /g,"-").toLowerCase() + ".html");
+        console.log(recipes);
         window.whisk.queue.push(function() {
             window.whisk.listeners.addClickListener('whisk-single-recipe', 'shoppingList.addRecipesToList', {
-                recipes: recipes
+                recipes: [recipes[0]]
             });
         });
     }

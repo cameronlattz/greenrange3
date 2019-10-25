@@ -8,7 +8,7 @@ const mealRoutes = require("./meal")
 // User routes
 router.use("/users", userRoutes);
 router.use("/dietOptionTypes", dietOptionTypesRoutes);
-router.use("/ingredient", ingredientRoutes);
+router.use("/ingredients", ingredientRoutes);
 router.use("/mealPlans", mealPlanRoutes);
 router.use("/userMealPlanHistory", userMealPlanHistoryRoutes);
 router.use("/meal", mealRoutes);
